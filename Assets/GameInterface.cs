@@ -1,6 +1,4 @@
 ﻿using UnityEngine;
-using UnityEditor;
-using UnityEditorInternal;
 using System.Collections.Generic;
 
 public class GameInterface : MonoBehaviour
@@ -29,7 +27,3 @@ public class GameInterface : MonoBehaviour
     }
 }
 
-[CustomEditor( typeof( GameInterface ) ) ]
-public class GameInterfaceEditor : EgoInterfaceEditor
-{
-}
