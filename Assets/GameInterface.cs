@@ -6,9 +6,10 @@ public class GameInterface : MonoBehaviour
     static GameInterface()
     {
         EgoSystems.Add(
+            new GameSystem(),
             new BallSystem(),
-            new BoxSystem(),
-            new GameSystem()
+            new PadSystem(),
+            new BoxSystem()
         );
     }
 

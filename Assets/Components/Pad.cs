@@ -1,7 +1,6 @@
 using UnityEngine;
 
 [DisallowMultipleComponent]
-public class Ball : MonoBehaviour
+public class Pad : MonoBehaviour
 {
-
 }
