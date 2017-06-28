@@ -20,6 +20,18 @@ public class GameSystem : EgoSystem
                 Ego.AddComponent<Box>(egoComponent);
             }
         }
+
+
+        {
+            var ballPrefab = Resources.Load ("Ball0") as GameObject;
+
+            var egoComponent = Ego.AddGameObject(Object.Instantiate<GameObject>(ballPrefab));
+            egoComponent.transform.position = new Vector3(0, -2, 0);
+
+            Ego.AddComponent<Ball>(egoComponent);
+
+            egoComponent.GetComponent<Ball>().velocity = new Vector3(0, 1, 0);
+        }
     }
 
     public override void Update()
