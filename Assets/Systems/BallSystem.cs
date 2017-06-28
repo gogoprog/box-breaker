@@ -19,8 +19,6 @@ public class BallSystem : EgoSystem<
     {
         constraint.ForEachGameObject( ( egoComponent, transform, rigidbody, ball ) =>
         {
-            rigidbody.velocity = e.collision.contacts[0].normal;
-
             Transform padTransform = null;
 
             if(e.egoComponent1.HasComponents<Pad>())
@@ -34,8 +32,13 @@ public class BallSystem : EgoSystem<
 
             if(padTransform != null)
             {
+                Debug.Log("Yep");
                 float d = transform.position.x - padTransform.position.x;
-                rigidbody.velocity = new Vector3(d, 1, 0);
+                rigidbody.velocity = new Vector3(d, rigidbody.velocity.y + e.collision.contacts[0].normal.y * 2, 0);
+            }
+            else
+            {
+                rigidbody.velocity = rigidbody.velocity + e.collision.contacts[0].normal * 2;
             }
         });
 
