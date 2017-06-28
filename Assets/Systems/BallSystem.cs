@@ -32,9 +32,8 @@ public class BallSystem : EgoSystem<
 
             if(padTransform != null)
             {
-                Debug.Log("Yep");
                 float d = transform.position.x - padTransform.position.x;
-                rigidbody.velocity = new Vector3(d, rigidbody.velocity.y + e.collision.contacts[0].normal.y * 2, 0);
+                rigidbody.velocity = new Vector3(d, rigidbody.velocity.y + e.collision.contacts[0].normal.y * 2.5f, 0);
             }
             else
             {
