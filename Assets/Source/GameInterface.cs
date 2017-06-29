@@ -8,6 +8,7 @@ public class GameInterface : MonoBehaviour
         EgoSystems.Add(
             new GameSystem(),
             new BallSystem(),
+            new CollisionSystem(),
             new PadSystem(),
             new BoxSystem()
         );
