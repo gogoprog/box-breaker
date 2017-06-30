@@ -11,6 +11,7 @@ public class GameInterface : MonoBehaviour
             new CollisionSystem(),
             new PadSystem(),
             new BoxSystem(),
+            new AutoRemoveSystem(),
             new HitSystem()
         );
     }

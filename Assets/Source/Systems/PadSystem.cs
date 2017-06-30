@@ -25,13 +25,14 @@ public class PadSystem : EgoSystem<
             move += 1;
         }
 
-        constraint.ForEachGameObject( ( egoComponent, transform, rigidbody, ball ) =>
+        constraint.ForEachGameObject((egoComponent, transform, rigidbody, ball) =>
         {
             var x = transform.position.x;
+            var y = transform.position.y;
 
             x += move * speed * Time.deltaTime;
 
-            transform.position = new Vector3(x, -2, 0);
+            transform.position = new Vector3(x, y, 0);
         });
     }
 }

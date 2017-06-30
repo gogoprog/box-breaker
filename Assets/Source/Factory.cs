@@ -5,12 +5,14 @@ public static class Factory
     public static GameObject boxPrefab;
     public static GameObject ballPrefab;
     public static GameObject padPrefab;
+    public static GameObject explosionPrefab;
 
     public static void Initialize()
     {
         boxPrefab = Resources.Load ("Brick0") as GameObject;
         ballPrefab = Resources.Load ("Ball0") as GameObject;
         padPrefab = Resources.Load ("Pad0") as GameObject;
+        explosionPrefab = Resources.Load ("Explosion0") as GameObject;
     }
 
     public static EgoComponent createBox()
@@ -38,6 +40,15 @@ public static class Factory
         var egoComponent = Ego.AddGameObject(Object.Instantiate<GameObject>(padPrefab));
 
         Ego.AddComponent<Pad>(egoComponent); 
+
+        return egoComponent;
+    }
+
+    public static EgoComponent createExplosion()
+    {
+        var egoComponent = Ego.AddGameObject(Object.Instantiate<GameObject>(explosionPrefab));
+        
+        Ego.AddComponent<AutoRemove>(egoComponent); 
 
         return egoComponent;
     }

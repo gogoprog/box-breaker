@@ -26,12 +26,12 @@ public class GameSystem : EgoSystem
 
         {
             var egoComponent = Factory.createBall();
-            egoComponent.transform.position = new Vector3(0, -1, 0);
+            egoComponent.transform.position = new Vector3(0, -3, 0);
         }
 
         {
             var egoComponent = Factory.createPad();
-            egoComponent.transform.position = new Vector3(0, -2, 0);
+            egoComponent.transform.position = new Vector3(0, -4, 0);
         }
 
         EgoEvents<ShootEvent>.AddEvent(new ShootEvent());

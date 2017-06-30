@@ -19,6 +19,9 @@ public class HitSystem : EgoSystem
 
        if(life.life <= 0)
        {
+           var explosion = Factory.createExplosion();
+           explosion.transform.position = e.target.transform.position;
+
            Ego.DestroyGameObject(e.target);
        }
     }
