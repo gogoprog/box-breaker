@@ -18,9 +18,9 @@ public class GameSystem : EgoSystem
                 egoComponent.transform.position = new Vector3(i * bounds.size.z * 10, j * bounds.size.y * 10, 0);
 
                 Ego.AddComponent<Box>(egoComponent);
+                Ego.AddComponent<Life>(egoComponent);
             }
         }
-
 
         {
             var ballPrefab = Resources.Load ("Ball0") as GameObject;

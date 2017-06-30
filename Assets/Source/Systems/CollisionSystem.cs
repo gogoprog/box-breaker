@@ -52,17 +52,17 @@ public class CollisionSystem : EgoSystem
 
             if(e.egoComponent1.HasComponents<Box>())
             {
-                DestroyBox( e.egoComponent1 );
+                HitBox(e.egoComponent1);
             }
             else if(e.egoComponent2.HasComponents<Box>())
             {
-                DestroyBox( e.egoComponent2 );
+                HitBox(e.egoComponent2);
             }
         }
     }
 
-    void DestroyBox(EgoComponent brickEgoComponent)
+    void HitBox(EgoComponent brickEgoComponent)
     {
-        Ego.DestroyGameObject(brickEgoComponent);
+         EgoEvents<HitEvent>.AddEvent(new HitEvent(Random.Range(45,55), brickEgoComponent));
     }
 }

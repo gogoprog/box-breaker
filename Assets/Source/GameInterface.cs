@@ -10,7 +10,8 @@ public class GameInterface : MonoBehaviour
             new BallSystem(),
             new CollisionSystem(),
             new PadSystem(),
-            new BoxSystem()
+            new BoxSystem(),
+            new HitSystem()
         );
     }
 
