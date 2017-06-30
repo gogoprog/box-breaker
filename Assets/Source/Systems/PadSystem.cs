@@ -4,9 +4,11 @@ public class PadSystem : EgoSystem<
     EgoConstraint<Transform, Rigidbody, Pad>
     >
 {
+    private float halfDistance;
+
     public override void Start()
     {
-
+        halfDistance = GameObject.Find("WallRight").transform.position.x - 0.5f;
     }
 
     public override void Update()
@@ -31,6 +33,8 @@ public class PadSystem : EgoSystem<
             var y = transform.position.y;
 
             x += move * speed * Time.deltaTime;
+
+            x = Mathf.Min(halfDistance, Mathf.Max(-halfDistance, x));
 
             transform.position = new Vector3(x, y, 0);
         });

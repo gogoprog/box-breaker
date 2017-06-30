@@ -16,7 +16,7 @@ public class BallSystem : EgoSystem<
 
     void Handle(ShootEvent e)
     {
-        constraint.ForEachGameObject( ( egoComponent, transform, rigidbody, ball ) =>
+        constraint.ForEachGameObject((egoComponent, transform, rigidbody, ball) =>
         {
             Debug.Log("Shoot!");
             rigidbody.AddForce(new Vector3(0, 1, 0), ForceMode.Impulse);
