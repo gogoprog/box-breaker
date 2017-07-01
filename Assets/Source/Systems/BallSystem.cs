@@ -11,7 +11,14 @@ public class BallSystem : EgoSystem<
 
     public override void Update()
     {
-
+        constraint.ForEachGameObject((egoComponent, transform, rigidbody, ball) =>
+        {
+            if(transform.position.y < -5.0f)
+            {
+                Debug.Log("Lost");
+                EgoEvents<LostEvent>.AddEvent(new LostEvent());
+            }
+        });
     }
 
     void Handle(ShootEvent e)

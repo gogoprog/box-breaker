@@ -24,7 +24,7 @@ public class CameraSystem : EgoSystem<
         if(transform != null)
         {
             var t = egoCamera.transform;
-            t.position = new Vector3(t.position.x, transform.position.y * 0.1f, t.position.z);
+            t.position = new Vector3(transform.position.x * 0.1f, transform.position.y * 0.1f, t.position.z);
         }
     }
 }

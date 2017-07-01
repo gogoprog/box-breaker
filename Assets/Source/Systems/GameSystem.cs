@@ -27,14 +27,13 @@ public class GameSystem : EgoSystem
         {
             var egoComponent = Factory.createBall();
             egoComponent.transform.position = new Vector3(0, -3, 0);
+            egoComponent.gameObject.name = "Ball";
         }
 
         {
             var egoComponent = Factory.createPad();
             egoComponent.transform.position = new Vector3(0, -4, 0);
         }
-
-        EgoEvents<ShootEvent>.AddEvent(new ShootEvent());
     }
 
     public override void Update()
