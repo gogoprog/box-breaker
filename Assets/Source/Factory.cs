@@ -39,7 +39,8 @@ public static class Factory
     {
         var egoComponent = Ego.AddGameObject(Object.Instantiate<GameObject>(padPrefab));
 
-        Ego.AddComponent<Pad>(egoComponent); 
+        Ego.AddComponent<Pad>(egoComponent);
+        Ego.AddComponent<PadLock>(egoComponent);
 
         return egoComponent;
     }

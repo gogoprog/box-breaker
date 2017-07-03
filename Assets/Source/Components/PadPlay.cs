@@ -1,6 +1,6 @@
 using UnityEngine;
 
 [DisallowMultipleComponent]
-public class Pad : MonoBehaviour
+public class PadPlay : MonoBehaviour
 {
 }

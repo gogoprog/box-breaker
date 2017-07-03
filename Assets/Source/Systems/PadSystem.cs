@@ -39,18 +39,6 @@ public class PadSystem : EgoSystem<
             x = Mathf.Min(halfDistance, Mathf.Max(-halfDistance, x));
 
             transform.position = new Vector3(x, y, 0);
-
-            if(!pad.playing)
-            {
-                if(Input.GetKey(KeyCode.Space))
-                {
-                    EgoEvents<ShootEvent>.AddEvent(new ShootEvent());
-                }
-
-                var ball = GameObject.Find("Ball");
-
-                ball.transform.position = new Vector3(x, y + 0.5f, 0.0f);
-            }
         });
     }
 
@@ -58,9 +46,11 @@ public class PadSystem : EgoSystem<
     {
         constraint.ForEachGameObject((egoComponent, transform, rigidbody, pad) =>
         {
-            pad.playing = true;
             var ball = GameObject.Find("Ball");
             ball.GetComponent<Rigidbody>().isKinematic = false;
+
+            Ego.DestroyComponent<PadLock>(egoComponent);
+            Ego.AddComponent<PadPlay>(egoComponent);
         });
     }
 
@@ -68,9 +58,11 @@ public class PadSystem : EgoSystem<
     {
         constraint.ForEachGameObject((egoComponent, transform, rigidbody, pad) =>
         {
-            pad.playing = false;
             var ball = GameObject.Find("Ball");
             ball.GetComponent<Rigidbody>().isKinematic = true;
+            
+            Ego.DestroyComponent<PadPlay>(egoComponent);
+            Ego.AddComponent<PadLock>(egoComponent);
         });
     }
 }
