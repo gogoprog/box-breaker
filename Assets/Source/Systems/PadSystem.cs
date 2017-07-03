@@ -59,6 +59,8 @@ public class PadSystem : EgoSystem<
         constraint.ForEachGameObject((egoComponent, transform, rigidbody, pad) =>
         {
             pad.playing = true;
+            var ball = GameObject.Find("Ball");
+            ball.GetComponent<Rigidbody>().isKinematic = false;
         });
     }
 
@@ -67,6 +69,8 @@ public class PadSystem : EgoSystem<
         constraint.ForEachGameObject((egoComponent, transform, rigidbody, pad) =>
         {
             pad.playing = false;
+            var ball = GameObject.Find("Ball");
+            ball.GetComponent<Rigidbody>().isKinematic = true;
         });
     }
 }
